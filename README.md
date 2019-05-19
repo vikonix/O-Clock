@@ -22,3 +22,5 @@ External librarys:
  - Bounce2
  - Adafruit Unified Sensor
  - Adafruit BME280 Library
+
+ Version 1.0 - initial version.
