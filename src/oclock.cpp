@@ -27,11 +27,13 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 //////////////////////////////////////////////////////////////////////////////
 //O'Clock - simple matrix clock
-//screen - 8x32 led matrix
-//time - rtc DS3231
-//with 3 or 2 keys
-//bright adjustment with photoresistor
-
+//Tested with Arduino Nano v3.0
+//Screen - 8x32 led matrix (SPI)
+//Time - rtc DS3231 (I2C)
+//Sensor - BME280 (I2C)
+//3 or 2 keys ('+', '-', 'Mode')
+//Brights adjustment with photoresistor
+//Passive piezo buzzer for melody playing
 
 #include <EEPROM.h>
 #include <LEDMatrixDriver.hpp>
@@ -45,16 +47,16 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // Other pins are Arduino specific SPI pins (MOSI=DIN, SCK=CLK of the LEDMatrix)
 // see https://www.arduino.cc/en/Reference/SPI
 // Connect DIN->D11 CLK->D13
-const uint8_t LEDMATRIX_CS_PIN = 9;
+const uint8_t LEDMATRIX_CS_PIN = 9; //D9
 
 // buzzer pin
-const uint8_t Buzzer_Pin       = 8;
+const uint8_t Buzzer_Pin       = 8; //D8 Passive piezo buzzer
 // photo resistor pin
-const uint8_t Photo_Pin        = A3;
+const uint8_t Photo_Pin        = A3; //Photoresistor connected to +5V with 10KOm to -V
 
-const uint8_t KeyMode_Pin      = 4;
-const uint8_t KeyPlus_Pin      = 5;
-const uint8_t KeyMinus_Pin     = 6;
+const uint8_t KeyMode_Pin      = 4; //D4 //Keys connected to -V
+const uint8_t KeyPlus_Pin      = 5; //D5
+const uint8_t KeyMinus_Pin     = 6; //D6
 
 // Number of 8x8 segments you are connecting
 const int LEDMATRIX_SEGMENTS   = 4;
@@ -76,6 +78,8 @@ RTC_DS3231 rtc; // I2C
 // Don't forgot to set next define with correct Address !!!
 #define MY_BME280_ADDRESS (0x76)
 #define SEALEVELPRESSURE_HPA (1013.25)
+
+// Connect SDA->A4 SCL->A5
 Adafruit_BME280 bme; // I2C
 
 // Key objects
