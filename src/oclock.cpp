@@ -1,7 +1,7 @@
 /*
 FreeBSD License
 
-Copyright (c) 2019, Valeriy Kovalev: valeriy.kovalev.software@gmail.com
+Copyright (c) 2019, vikonix: valeriy.kovalev.software@gmail.com
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -235,7 +235,7 @@ void setup()
   lmd.clear();
 
   Serial.begin(9600);
-  Serial.println(F("O'Clock Version:" VERSION));
+  Serial.println(F("Vikonix O'Clock Version:" VERSION));
   //Serial.print(F("EEPROM size="));
   //Serial.println(EepromSize, DEC);
 
