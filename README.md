@@ -28,4 +28,6 @@ External libraries:
 
  ![Screenshot](docs/breadboard2.jpg)
  
+ ![Screenshot](docs/schematic_O-Clock.png)
+ 
  Version 1.0 - initial version.

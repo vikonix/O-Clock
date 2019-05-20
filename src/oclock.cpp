@@ -50,7 +50,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 const uint8_t LEDMATRIX_CS_PIN = 9; //D9
 
 // buzzer pin
-const uint8_t Buzzer_Pin       = 8; //D8 Passive piezo buzzer
+const uint8_t Buzzer_Pin       = 8; //D8 Passive piezo buzzer connected to +5V
 // photo resistor pin
 const uint8_t Photo_Pin        = A3; //Photoresistor connected to +5V with 10KOm to -V
 
