@@ -24,10 +24,12 @@ External libraries:
  - Adafruit Unified Sensor
  - Adafruit BME280 Library
 
+ Breadboard photo
  ![Screenshot](docs/breadboard1.jpg)
 
  ![Screenshot](docs/breadboard2.jpg)
  
- ![Screenshot](docs/schematic_O-Clock.png)
+ Schematic
+ ![Screenshot](docs/Schematic_O-Clock.png)
  
  Version 1.0 - initial version.
