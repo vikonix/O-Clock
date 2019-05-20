@@ -55,8 +55,8 @@ const uint8_t Buzzer_Pin       = 8; //D8 Passive piezo buzzer
 const uint8_t Photo_Pin        = A3; //Photoresistor connected to +5V with 10KOm to -V
 
 const uint8_t KeyMode_Pin      = 4; //D4 //Keys connected to -V
-const uint8_t KeyPlus_Pin      = 5; //D5
-const uint8_t KeyMinus_Pin     = 6; //D6
+const uint8_t KeyPlus_Pin      = 5; //D5 -//-
+const uint8_t KeyMinus_Pin     = 6; //D6 -//- (optional)
 
 // Number of 8x8 segments you are connecting
 const int LEDMATRIX_SEGMENTS   = 4;
@@ -72,7 +72,7 @@ LEDMatrixDriver lmd(LEDMATRIX_SEGMENTS, LEDMATRIX_CS_PIN);
 // Connect SDA->A4 SCL->A5
 RTC_DS3231 rtc; // I2C
 
-//BME 280 module
+//BME 280 module (optional)
 // BME280 Address fixed in library Adafruit_BME280.h
 // original Address is 0x77, China module Address is 0x76.
 // Don't forgot to set next define with correct Address !!!

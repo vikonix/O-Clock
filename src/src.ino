@@ -25,4 +25,4 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-//just empty file for Arduino IDE
+//This empty file need for loading project in Arduino IDE from '/src' subdir

@@ -212,12 +212,12 @@ void ChangeTime(int Mode, int Increment)
     int sx = 7;
     if(Mode == MODE_CH_MONTH)
     {
-      x  = 9;
-      sx = 12;
+      x  = 10;
+      sx = 11;
     }
     else if(Mode == MODE_CH_YEAR)
     {
-      x  = 23;
+      x  = 24;
       sx = 7;
     }
     if(IS_BLINK())
@@ -383,7 +383,11 @@ void loop()
 
       if(Mode < MODE_SHOW_END)
       {
-        if(Mode <= MODE_SHOW_BEGIN || ++Mode >= MODE_SHOW_END)
+        ++Mode;
+        if(Mode == MODE_SHOW_TEMP && !IsTPHpresent())
+          //BME280 not inited
+          ++Mode;
+        if(Mode <= MODE_SHOW_BEGIN || Mode >= MODE_SHOW_END)
           Mode = MODE_SHOW_BEGIN + 1;
         if(Mode == MODE_SHOW_CLOCK)  
           TimeChanged = CHANGED_ALL;

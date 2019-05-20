@@ -21,6 +21,10 @@ External librarys:
  - NonBlockingRTTTL
  - Bounce2
  - Adafruit Unified Sensor
- - Adafruit BME280 Library
+ - Adafruit BME280 Library (optional)
 
+ ![Screenshot](docs/breadboard1.jpg)
+
+ ![Screenshot](docs/breadboard2.jpg)
+ 
  Version 1.0 - initial version.
