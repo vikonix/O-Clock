@@ -45,7 +45,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 const byte AlarmPic[] = 
   {6, 0x20, 0x3e, 0xbf, 0xbf, 0x3e, 0x20};
   //{6, 0x20, 0x3e, 0xa3, 0xa3, 0x3e, 0x20};
-const byte GradC[] = {5, 0x02, 0x00, 0x1c, 0x22, 0x22};
+const byte GradC[] = 
+  {5, 0x02, 0x00, 0x1c, 0x22, 0x22};
 
 //////////////////////////////////////////////////////////////////////////////
 // Clock Configuration
@@ -62,7 +63,8 @@ void LoadConfig()
 {
   Serial.println(F("LoadConfig"));
   EEPROM.get(0, config);
-  alarm.SetAlarm(config.days, config.hour, config.mins, config.melody);
+  if(config.days != 0xff) //not inited EEPROM
+    alarm.SetAlarm(config.days, config.hour, config.mins, config.melody);
 }
 
 void SaveConfig()
