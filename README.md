@@ -24,18 +24,19 @@ External libraries:
  - Adafruit Unified Sensor
  - Adafruit BME280 Library
 
- Breadboard photo
+Breadboard photo
  ![Screenshot](docs/breadboard1.jpg)
 
  ![Screenshot](docs/breadboard2.jpg)
  
- Schematic
+Schematic
  ![Screenshot](docs/Schematic_O-Clock.png)
  
- Version 1.0 - initial version.
- You can see how this clock works on [YouTube](https://www.youtube.com/watch?v=nfpqMhbTryE).
+Version 1.0 - initial version.
+
+You can see how this clock works on [YouTube](https://www.youtube.com/watch?v=nfpqMhbTryE).
  
-External libraries Dependency Graph
+External libraries Dependency Graph:
 - Adafruit BME280 Library 1.0.8
    - Adafruit Unified Sensor 1.0.3
    - SPI 1.0
