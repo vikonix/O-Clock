@@ -35,7 +35,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //////////////////////////////////////////////////////////////////////////////
 // Class for alarm management and playing melody when alarm went off 
 
-#define SNOOZE_TIME (1 * 60)  //snooze period in seconds
+#define SNOOZE_TIME (5 * 60)  //snooze period in seconds
 #define ALARM_TIME  30        //alarm time in seconds
 
 //#define DEBUG_ALARM

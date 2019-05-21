@@ -72,7 +72,7 @@ LEDMatrixDriver lmd(LEDMATRIX_SEGMENTS, LEDMATRIX_CS_PIN);
 // Connect SDA->A4 SCL->A5
 RTC_DS3231 rtc; // I2C
 
-//BME 280 module (optional)
+// BME 280 module (optional)
 // BME280 Address fixed in library Adafruit_BME280.h
 // original Address is 0x77, China module Address is 0x76.
 // Don't forgot to set next define with correct Address !!!
@@ -103,7 +103,7 @@ const int MelodiesCount = sizeof(MelodyArray) / sizeof(const char*);
 Alarm alarm(Buzzer_Pin, MelodyArray, MelodiesCount);
 
 //////////////////////////////////////////////////////////////////////////////
-//current time
+// current time
 DateTime CurTime;
 int CurHours = -1;//not inited
 int CurMins  = 0;
@@ -122,10 +122,10 @@ int GetCurTime()
 
   if(h == -1)
   {
-    //first call
+    // first call
     return CHANGED_ALL;
   }
-  //check modified digits
+  // check modified digits
   int mod = CHANGED_NOTHING;
   if(h / 10 != CurHours / 10)
     mod = CHANGED_HOUR10;
@@ -155,15 +155,15 @@ void AdjustBright()
   // current bright level
   static int CurBrightLevel = 0;
 
-  //logarithmic level
+  // logarithmic level
   byte level[] = {0,0,0,0,0,0,1,2,4,8}; // 0 = low, 15 = high
-  //maximal analog value
+  // maximal analog value
   const int MaxAnalogValue = 1023;
 
   int v = analogRead(Photo_Pin);
-  //calc linear level
+  // calc linear level
   int l = (v * sizeof(level)) / MaxAnalogValue;
-  //get logarithmic level
+  // get logarithmic level
   l = level[l];
 
   if(CurBrightLevel != l)
@@ -240,8 +240,7 @@ void setup()
 
   Serial.begin(9600);
   Serial.println(F("Vikonix O'Clock Version:" VERSION));
-  //Serial.print(F("EEPROM size="));
-  //Serial.println(EepromSize, DEC);
+  //Serial.print(F("EEPROM size=")); Serial.println(EepromSize, DEC);
 
   if(!rtc.begin())
   {
