@@ -36,17 +36,17 @@ External libraries:
  You can see how this clock works on [YouTube](https://www.youtube.com/watch?v=nfpqMhbTryE).
  
 External libraries Dependency Graph
-|-- <Adafruit BME280 Library> 1.0.8
-|   |-- <Adafruit Unified Sensor> 1.0.3
-|   |-- <SPI> 1.0
-|   |-- <Wire> 1.0
-|-- <RTClib> 1.2.1
-|   |-- <Wire> 1.0
-|-- <EEPROM> 2.0
-|-- <NonBlockingRTTTL> 1.2.2
-|-- <LEDMatrixDriver> 0.2.2
-|   |-- <SPI> 1.0
-|   |-- <Adafruit GFX Library> 1.5.0
-|   |   |-- <SPI> 1.0
-|-- <Adafruit Unified Sensor> 1.0.3
-|-- <Bounce2> 2.52
+- Adafruit BME280 Library 1.0.8
+   - Adafruit Unified Sensor 1.0.3
+   - SPI 1.0
+   - Wire 1.0
+- RTClib 1.2.1
+   - Wire 1.0
+- EEPROM 2.0
+- NonBlockingRTTTL 1.2.2
+- LEDMatrixDriver 0.2.2
+   - SPI 1.0
+   - Adafruit GFX Library 1.5.0
+      - SPI 1.0
+- Adafruit Unified Sensor 1.0.3
+- Bounce2 2.52
