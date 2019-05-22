@@ -503,7 +503,7 @@ void loop()
   {
     //Serial.println(F("reset mode"));
     ModeTimeout = 0;
-    TimeChanged = CHANGED_ALL;
+    TimeChanged = SCROLL_ALL;//CHANGED_ALL;
     Mode = MODE_SHOW_CLOCK;
   }
 

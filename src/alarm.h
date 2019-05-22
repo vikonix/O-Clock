@@ -81,18 +81,17 @@ public:
   static uint8_t DayOfTheWeek(uint8_t day) 
   {
     if(day == 0)//Sunday
-      day = 6;
+      return 0x40;
     else
-      day >>= 1;
-    return 1 << day;
+      return 1 << --day;
   }
 
   void SetAlarm(uint8_t days, uint8_t hour, uint8_t mins, uint8_t melody)  
   {
-    m_Days    = days;
-    m_Hour    = hour; 
-    m_Min     = mins;
-    m_Melody  = melody;
+    m_Days   = days;
+    m_Hour   = hour; 
+    m_Min    = mins;
+    m_Melody = melody;
     if(m_Melody >= m_MelodyCount)
       m_Melody = 0;
 
@@ -106,10 +105,10 @@ public:
   
   void GetAlarm(uint8_t& days, uint8_t& hour, uint8_t& mins, uint8_t& melody)
   {
-    days      = m_Days;
-    hour      = m_Hour;
-    mins      = m_Min;
-    melody    = m_Melody;
+    days     = m_Days;
+    hour     = m_Hour;
+    mins     = m_Min;
+    melody   = m_Melody;
   }
   
   void Play() 
