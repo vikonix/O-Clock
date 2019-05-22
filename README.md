@@ -10,7 +10,7 @@ Clock can show temperature, humidity and date.
  - Screen - 8x32 led matrix (SPI)
  - Time - rtc DS3231 (I2C)
  - Sensor - BME280 (I2C) (Optional)
- - 3 or 2 keys ('+', '-', 'Mode')
+ - 3 keys ('+', '-', 'Mode') ('-' optional)
  - Brights adjustment with photoresistor (5528 Light Dependent Resistor LDR 5MM)
  - Passive piezo buzzer for melody playing
 
@@ -33,6 +33,7 @@ Breadboard photo
 Schematic
  ![Screenshot](docs/Schematic_O-Clock.png)
  
+---
 Version 1.0 - initial version.
 
 You can see how this clock works on [YouTube](https://www.youtube.com/watch?v=nfpqMhbTryE).
