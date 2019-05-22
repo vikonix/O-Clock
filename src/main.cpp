@@ -33,6 +33,11 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //////////////////////////////////////////////////////////////////////////////
 // O'Clock main loop() with Clock Menu code
 
+//automaticaly show temperature and date  
+#define AUTO_SHOW_TEMP      2 //0-Off else duration in seconds
+#define AUTO_SHOW_DATE      2 //0-Off else duration in seconds
+#define SHOW_TEMP_ON_SECS  30 //seconds to show temperature
+#define SHOW_DATE_ON_SECS  45 //seconds to show date
 
 //////////////////////////////////////////////////////////////////////////////
 #define BLINK_LOG   8 /* 8 -> 500ms */
@@ -510,6 +515,7 @@ void loop()
   // Apply Mode
   if(Mode == MODE_SHOW_CLOCK)
   {
+    fBlink = false;
     if(TimeChanged)
     {
       uint8_t h, m, d, n;
@@ -518,9 +524,32 @@ void loop()
 
       DisplayTime(CurHours, CurMins, CurSecs, alarm, TimeChanged, 0);
       SaveConfig();
+
+#if AUTO_SHOW_TEMP != 0
+      if(CurSecs == SHOW_TEMP_ON_SECS)
+      {  
+        Mode   = MODE_SHOW_TEMP;
+        fEvent = true;
+        ModeTimeout = CurTime.secondstime() + AUTO_SHOW_TEMP;
+      }
+      else 
+#endif
+#if AUTO_SHOW_DATE != 0
+      if(CurSecs == SHOW_DATE_ON_SECS)
+      {  
+        Mode   = MODE_SHOW_DATE;
+        fEvent = true;
+        ModeTimeout = CurTime.secondstime() + AUTO_SHOW_DATE;
+      }
+      else
+#endif      
+      {
+        fEvent = false;
+      }
     }
   }
-  else if(fEvent || fBlink)
+  
+  if(fEvent || fBlink)
   {
     if(Mode == MODE_SHOW_DATE)
     {
