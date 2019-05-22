@@ -27,13 +27,15 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 //////////////////////////////////////////////////////////////////////////////
 //O'Clock - simple matrix clock
-//Tested with Arduino Nano v3.0
-//Screen - 8x32 led matrix (SPI)
-//Time - rtc DS3231 (I2C)
-//Sensor - BME280 (I2C)
-//3 or 2 keys ('+', '-', 'Mode')
-//Brights adjustment with photoresistor
-//Passive piezo buzzer for melody playing
+/*
+ - Tested with Arduino Nano v3.0
+ - Screen - 8x32 led matrix (SPI)
+ - Time - rtc DS3231 (I2C)
+ - Sensor - BME280 (I2C) (Optional)
+ - 3 keys ('+', '-', 'Mode') ('-' optional)
+ - Brights adjustment with photoresistor (5528 Light Dependent Resistor LDR 5MM)
+ - Passive piezo buzzer for melody playing
+*/
 
 #include <EEPROM.h>
 #include <LEDMatrixDriver.hpp>
