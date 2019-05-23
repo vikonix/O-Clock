@@ -28,8 +28,6 @@ External libraries:
 Breadboard photo
  ![Screenshot](docs/breadboard1.jpg)
 
- ![Screenshot](docs/breadboard2.jpg)
- 
 Schematic
  ![Screenshot](docs/Schematic_O-Clock.png)
  
