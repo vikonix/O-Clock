@@ -342,7 +342,7 @@ void ChangeAlarm(int Mode, int Increment)
 //////////////////////////////////////////////////////////////////////////////
 #define KEY_TIMEOUT_PERIOD     5  //sec
 #define LONG_PRESSED_PERIOD 2000  //msec
-#define LOOP_SLEEP_TIME       50
+#define LOOP_SLEEP_TIME       50  //msec
 
 //////////////////////////////////////////////////////////////////////////////
 void loop()
@@ -352,10 +352,12 @@ void loop()
   static long ModeTimeout = 0;
   
   bool fBlink = false;
-  static unsigned long blink = 0;
-  if(millis() > blink)
+  static unsigned long blinkt = 0;
+  
+  unsigned long ms = millis();
+  if(ms - blinkt >= (1ul << BLINK_LOG))
   {
-    blink = millis() + (1 << BLINK_LOG);
+    blinkt = ms;
     fBlink = true;
   }
 
