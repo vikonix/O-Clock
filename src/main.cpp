@@ -213,7 +213,7 @@ void ChangeTime(int Mode, int Increment)
   }
   else
   {
-    sprintf(buff, "%d  %s.%d", D, Months[M - 1], Y - 2000);
+    sprintf(buff, "%02d  %s.%d", D, Months[M - 1], Y - 2000);
     PrintTinyString(buff, 0, 1);
     int x  = 0;
     int sx = 7;
