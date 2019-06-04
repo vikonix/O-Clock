@@ -220,12 +220,12 @@ void ChangeTime(int Mode, int Increment)
     if(Mode == MODE_CH_MONTH)
     {
       x  = 10;
-      sx = 11;
+      sx = 10;
     }
     else if(Mode == MODE_CH_YEAR)
     {
       x  = 24;
-      sx = 7;
+      sx = 6;
     }
     if(IS_BLINK())
     {  

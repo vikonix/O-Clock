@@ -36,7 +36,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "screen.h"
 
 //////////////////////////////////////////////////////////////////////////////
-//O'Clock version
+//O'Clock version 04.06.2019
 #define VERSION "1.0"
 
 
