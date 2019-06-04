@@ -34,7 +34,7 @@ Schematic
 ---
 Version 1.0 - initial version.
 
-You can see how this clock works on [YouTube](https://www.youtube.com/watch?v=nfpqMhbTryE).
+You can see how this clock works on [YouTube](https://www.youtube.com/watch?v=Dx4R_fJPpwI).
  
 External libraries Dependency Graph:
 - LEDMatrixDriver 0.2.2
