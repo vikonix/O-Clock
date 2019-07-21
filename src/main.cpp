@@ -511,6 +511,9 @@ void loop()
     //Serial.println(F("reset mode"));
     ModeTimeout = 0;
     TimeChanged = SCROLL_ALL;//CHANGED_ALL;
+    if(Mode == MODE_CH_ALARM_MELODY)
+      alarm.Reset();
+      
     Mode = MODE_SHOW_CLOCK;
   }
 
