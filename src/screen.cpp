@@ -280,7 +280,7 @@ void ScrollVertical(byte* buffer, byte from, byte to, boolean fUp)
 
 //////////////////////////////////////////////////////////////////////////////
 //clock digits positions
-#define POS_DIGIT1 0                //0
+#define POS_DIGIT1 1                //0
 #define POS_DIGIT2 (POS_DIGIT1 + 7) //7
 #define POS_COLON  (POS_DIGIT2 + 7) //14
 #define POS_DIGIT3 (POS_COLON  + 3) //17
