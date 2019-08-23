@@ -14,6 +14,9 @@ Clock can show temperature, humidity and date.
  - Brights adjustment with photoresistor (5528 Light Dependent Resistor LDR 5MM)
  - Passive piezo buzzer for melody playing
 
+If you have digital noise in buzzer especially on high bright level you need to add electrolytic capacitor about 470 mkF and ceramic 0,1 mkF at the power line.
+If you not have temperature and humidity indication with BME280 sensor check it's address. In code the address is specified for China module (0x76 in clock.cpp:81).
+
 Project can be compiled in Arduino IDE or in PlatformIO
 
 External libraries:
