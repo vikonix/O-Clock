@@ -33,11 +33,15 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //////////////////////////////////////////////////////////////////////////////
 // O'Clock main loop() with Clock Menu code
 
-//automaticaly show temperature and date  
-#define AUTO_SHOW_TEMP      2 //0-Off else duration in seconds
-#define AUTO_SHOW_DATE      2 //0-Off else duration in seconds
-#define SHOW_TEMP_ON_SECS  30 //seconds to show temperature
-#define SHOW_DATE_ON_SECS  45 //seconds to show date
+//automaticaly show pressure, temperature and date  
+#define AUTO_SHOW_PRESSURE     2 //0-Off else duration in seconds
+#define AUTO_SHOW_TEMP         2 //0-Off else duration in seconds
+#define AUTO_SHOW_DATE         2 //0-Off else duration in seconds
+
+//at this seconds parameter was displayed
+#define SHOW_PRESSURE_ON_SECS 15 //seconds to show pressure
+#define SHOW_TEMP_ON_SECS     30 //seconds to show temperature
+#define SHOW_DATE_ON_SECS     45 //seconds to show date
 
 //////////////////////////////////////////////////////////////////////////////
 #define BLINK_LOG   8 /* 8 -> 500ms */
@@ -95,6 +99,7 @@ enum {
   MODE_SHOW_BEGIN,
     MODE_SHOW_CLOCK,
     MODE_SHOW_TEMP,
+    MODE_SHOW_PRESSURE,
     MODE_SHOW_DATE,
     MODE_SHOW_ALARM,
   MODE_SHOW_END,
@@ -530,6 +535,15 @@ void loop()
       DisplayTime(CurHours, CurMins, CurSecs, alarm, TimeChanged, 0);
       SaveConfig();
 
+#if AUTO_SHOW_PRESSURE != 0
+      if(CurSecs == SHOW_PRESSURE_ON_SECS)
+      {  
+        Mode   = MODE_SHOW_PRESSURE;
+        fEvent = true;
+        ModeTimeout = CurTime.secondstime() + AUTO_SHOW_TEMP;
+      }
+      else 
+#endif
 #if AUTO_SHOW_TEMP != 0
       if(CurSecs == SHOW_TEMP_ON_SECS)
       {  
@@ -561,18 +575,25 @@ void loop()
       sprintf(buff, "%d  %s.  %d", CurTime.day(), Months[CurTime.month() - 1], CurTime.year() - 2000);
       PrintTinyString(buff, 0, 1);
     }
-    else if(Mode == MODE_SHOW_TEMP)
+    else if(Mode == MODE_SHOW_TEMP || Mode == MODE_SHOW_PRESSURE)
     {
       float t, p, h;
       if(ReadTPH(t, p, h))
       {
-        int temp = t;
-        int rh   = h;
-        sprintf(buff, "%2d  %2d%%H", temp, rh);
-        //int hPa  = p / 100.0f;
-        //sprintf(buff, "%d hPa", hPa);
-        PrintTinyString(buff, 0, 1, true);
-        PrintPictogram(8, &GradC[1], GradC[0]);
+        if(Mode == MODE_SHOW_TEMP)
+        {
+          int temp = t;
+          int rh   = h;
+          sprintf(buff, "%2d  %2d%%H", temp, rh);
+          PrintTinyString(buff, 0, 1, true);
+          PrintPictogram(8, &GradC[1], GradC[0]);
+        }
+        else
+        {
+          int hPa  = p / 100.0f;
+          sprintf(buff, "%d  hPa", hPa);
+          PrintTinyString(buff, 1, 1);
+        }
       }
       else
       {
