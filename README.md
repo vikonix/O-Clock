@@ -39,6 +39,8 @@ Schematic
 Version 1.0 - initial version.
 
 You can see how this clock works on [YouTube](https://www.youtube.com/watch?v=Dx4R_fJPpwI).
+
+You can see PCB layout on [EasyEDA](https://easyeda.com/vikonix/o-clock).
  
 External libraries Dependency Graph:
 - LEDMatrixDriver 0.2.2
