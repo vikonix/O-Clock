@@ -163,6 +163,14 @@ void AdjustBright()
   const int MaxAnalogValue = 1023;
 
   int v = analogRead(Photo_Pin);
+#if 0
+  //switch off LED in full dark
+  if(v == 0)
+    lmd.setEnabled(false);
+  else
+    lmd.setEnabled(true);
+#endif
+
   // calc linear level
   int l = (v * sizeof(level)) / MaxAnalogValue;
   // get logarithmic level
