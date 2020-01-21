@@ -572,7 +572,7 @@ void loop()
   {
     if(Mode == MODE_SHOW_DATE)
     {
-      sprintf(buff, "%d  %s.  %d", CurTime.day(), Months[CurTime.month() - 1], CurTime.year() - 2000);
+      sprintf(buff, "%d  %s. %d", CurTime.day(), Months[CurTime.month() - 1], CurTime.year() - 2000);
       PrintTinyString(buff, 0, 1);
     }
     else if(Mode == MODE_SHOW_TEMP || Mode == MODE_SHOW_PRESSURE)
