@@ -1,7 +1,7 @@
 /*
 FreeBSD License
 
-Copyright (c) 2019, vikonix: valeriy.kovalev.software@gmail.com
+Copyright (c) 2019,2020 vikonix: valeriy.kovalev.software@gmail.com
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -55,7 +55,7 @@ protected:
 
   char*               m_Buffer;
   bool                m_Play;
-  long                m_Snooze;
+  uint32_t            m_Snooze;
 
 public:
   // melody array in RTTTL format in PROGMEM

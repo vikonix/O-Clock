@@ -1,7 +1,7 @@
 /*
 FreeBSD License
 
-Copyright (c) 2019, vikonix: valeriy.kovalev.software@gmail.com
+Copyright (c) 2019,2020 vikonix: valeriy.kovalev.software@gmail.com
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -36,8 +36,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "screen.h"
 
 //////////////////////////////////////////////////////////////////////////////
-//O'Clock version 04.06.2019
-#define VERSION "1.0"
+//O'Clock version 11.06.2020
+#define VERSION "1.1"
 
 
 //////////////////////////////////////////////////////////////////////////////

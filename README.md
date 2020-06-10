@@ -36,7 +36,7 @@ Schematic
  ![Screenshot](docs/Schematic_O-Clock.png)
  
 ---
-Version 1.0 - initial version.
+Version 1.1 - stable version.
 
 You can see how this clock works on [YouTube](https://www.youtube.com/watch?v=Dx4R_fJPpwI).
 
@@ -47,13 +47,13 @@ External libraries Dependency Graph:
    - SPI 1.0
    - Adafruit GFX Library 1.7.5
       - SPI 1.0
-- RTClib 1.3.3
+- RTClib 1.8.0
    - Wire 1.0
 - EEPROM 2.0
 - NonBlockingRTTTL 1.2.2
-- Bounce2 2.52
-- Adafruit Unified Sensor 1.1.1
-- Adafruit BME280 Library 2.0.1
-   - Adafruit Unified Sensor 1.1.1
+- Bounce2 2.53
+- Adafruit Unified Sensor 1.1.3
+- Adafruit BME280 Library 2.0.2
+   - Adafruit Unified Sensor 1.1.3
    - SPI 1.0
    - Wire 1.0

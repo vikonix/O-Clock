@@ -1,7 +1,7 @@
 /*
 FreeBSD License
 
-Copyright (c) 2019, vikonix: valeriy.kovalev.software@gmail.com
+Copyright (c) 2019,2020 vikonix: valeriy.kovalev.software@gmail.com
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -163,6 +163,8 @@ void AdjustBright()
   const int MaxAnalogValue = 1023;
 
   int v = analogRead(Photo_Pin);
+  //Serial.print(F("Light level=")); Serial.println(v, DEC);
+
 #if 0
   //switch off LED in full dark
   if(v == 0)

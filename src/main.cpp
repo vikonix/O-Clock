@@ -1,7 +1,7 @@
 /*
 FreeBSD License
 
-Copyright (c) 2019, vikonix: valeriy.kovalev.software@gmail.com
+Copyright (c) 2019,2020 vikonix: valeriy.kovalev.software@gmail.com
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -32,6 +32,13 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 //////////////////////////////////////////////////////////////////////////////
 // O'Clock main loop() with Clock Menu code
+
+//delay in automatic key repeat mode
+//0-without delay
+#define KEY_DELAY 1
+
+//show pressure in mm Hg
+//#define PRESSURE_IN_MM
 
 //automaticaly show pressure, temperature and date  
 #define AUTO_SHOW_PRESSURE     2 //0-Off else duration in seconds
@@ -354,7 +361,7 @@ void loop()
 {
   //current mode
   static int  Mode = MODE_SHOW_CLOCK;
-  static long ModeTimeout = 0;
+  static uint32_t ModeTimeout = 0;
   
   bool fBlink = false;
   static unsigned long blinkt = 0;
@@ -485,23 +492,36 @@ void loop()
   || Mode == MODE_CH_ALARM_MIN
   )
   {
+    static int KeyDelay = 0;
     if(!fEvent && !KeyPlus.read())
     {
       if(KeyPlus.duration() >= LONG_PRESSED_PERIOD)
       {
         //long pressed 
-        fEvent = true;
-        increment = 1;
+        if(++KeyDelay >= KEY_DELAY)
+        {
+          fEvent = true;
+          increment = 1;
+          KeyDelay = 0;
+        }
       }
     }
-    if(!fEvent && !KeyMinus.read())
+    else if(!fEvent && !KeyMinus.read())
     {
       if(KeyMinus.duration() >= LONG_PRESSED_PERIOD)
       {
         //long pressed 
-        fEvent = true;
-        increment = -1;
+        if(++KeyDelay >= KEY_DELAY)
+        {
+          fEvent = true;
+          increment = -1;
+          KeyDelay = 0;
+        }
       }
+    }
+    else
+    {
+      KeyDelay = 0;
     }
   }
 
@@ -590,8 +610,13 @@ void loop()
         }
         else
         {
+#ifndef PRESSURE_IN_MM
           int hPa  = p / 100.0f;
           sprintf(buff, "%d  hPa", hPa);
+#else
+          int mmHg  = p / 133.332f;
+          sprintf(buff, "%d  mm", mmHg);
+#endif          
           PrintTinyString(buff, 1, 1);
         }
       }
