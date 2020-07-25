@@ -41,6 +41,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //#define PRESSURE_IN_MM
 
 //automaticaly show pressure, temperature and date  
+#define SWITCH_MODE_PERIOD     2 //n minutes - showing period of Pressure/Temp/Date
 #define AUTO_SHOW_PRESSURE     2 //0-Off else duration in seconds
 #define AUTO_SHOW_TEMP         2 //0-Off else duration in seconds
 #define AUTO_SHOW_DATE         2 //0-Off else duration in seconds
@@ -585,6 +586,13 @@ void loop()
       {
         fEvent = false;
       }
+
+      if(fEvent && SWITCH_MODE_PERIOD && 0 != CurMins % SWITCH_MODE_PERIOD)
+      {
+          //skip for SWITCH_MODE_PERIOD
+          Mode = MODE_SHOW_CLOCK;
+          fEvent = false;
+      }
     }
   }
   
@@ -615,7 +623,7 @@ void loop()
           sprintf(buff, "%d  hPa", hPa);
 #else
           int mmHg  = p / 133.332f;
-          sprintf(buff, "%d  mm", mmHg);
+          sprintf(buff, "%d   mm", mmHg);
 #endif          
           PrintTinyString(buff, 1, 1);
         }
