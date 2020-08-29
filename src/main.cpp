@@ -40,6 +40,9 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //show pressure in mm Hg
 //#define PRESSURE_IN_MM
 
+//nixie tube emulation
+#define NIXIE_TUBE
+
 //automaticaly show pressure, temperature and date  
 #define SWITCH_MODE_PERIOD     2 //n minutes - showing period of Pressure/Temp/Date
 #define AUTO_SHOW_PRESSURE     2 //0-Off else duration in seconds
@@ -612,9 +615,13 @@ void loop()
         {
           int temp = t;
           int rh   = h;
+#ifndef NIXIE_TUBE
           sprintf(buff, "%2d  %2d%%H", temp, rh);
           PrintTinyString(buff, 0, 1, true);
           PrintPictogram(8, &GradC[1], GradC[0]);
+#else
+          DisplayTemp(temp, rh);
+#endif          
         }
         else
         {

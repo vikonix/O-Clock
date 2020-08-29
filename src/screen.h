@@ -53,5 +53,7 @@ void DisplayTime(int hours, int mins, int secs, bool alarm, byte scroll_mode, bo
 void PrintTinyString(const char* str, int x, int y, bool fixed = false);
 void InverseBlock(int x, int y, int sizex, int sizey);
 void PrintPictogram(int x, const byte* buff, int size);
+void DisplayTemp(int temp, int rh);
+
 
 #endif //__SCREEN_H__

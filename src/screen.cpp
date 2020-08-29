@@ -33,6 +33,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // digits 6x8 mono
 #define BIG_COLON   0xa
 #define BIG_COLON1  0xb
+#define BIG_GRAD    0xc
 const byte font_digit_6x8[] PROGMEM = {
   0x7e, 0xff, 0x81, 0x81, 0xff, 0x7e,  //'0' 0
   0x00, 0x82, 0xff, 0xff, 0x80, 0x00,  //'1' 1 
@@ -45,7 +46,8 @@ const byte font_digit_6x8[] PROGMEM = {
   0x76, 0xff, 0x89, 0x89, 0xff, 0x76,  //'8' 8
   0x0e, 0x9f, 0x91, 0xd1, 0x7f, 0x3e,  //'9' 9
   0x62, 0x62, 0x00, 0x00, 0x00, 0x00,  //':' 0xa
-  0x46, 0x46, 0x00, 0x00, 0x00, 0x00   //':' 0xb
+  0x46, 0x46, 0x00, 0x00, 0x00, 0x00,  //':' 0xb
+  0x03, 0x03, 0x00, 0x00, 0x00, 0x00,  //'"' 0xc
 };
 
 // tiny font with my small modification
@@ -331,6 +333,23 @@ void DisplayTime(int hours, int mins, int secs, bool alarm, byte scroll_mode, bo
       ScrollVertical(sprite_buffer, 0, 31, fUp);
       break;
   }
+}
+
+
+void DisplayTemp(int temp, int rh)
+{
+  byte sprite_buffer[LEDMATRIX_WIDTH];
+  memset(sprite_buffer, 0, LEDMATRIX_WIDTH);
+
+  //print temp
+  CopySymbol(sprite_buffer, font_digit_6x8, temp / 10, POS_DIGIT1, 0, 6, 8);
+  CopySymbol(sprite_buffer, font_digit_6x8, temp % 10, POS_DIGIT2, 0, 6, 8);
+  CopySymbol(sprite_buffer, font_digit_6x8, BIG_GRAD, POS_COLON, 0, 6, 8, 2);
+  //print humidity
+  CopySymbol(sprite_buffer, font_digit_6x8, rh / 10, POS_DIGIT3, 0, 6, 8);
+  CopySymbol(sprite_buffer, font_digit_6x8, rh % 10, POS_DIGIT4, 0, 6, 8);
+
+  ShowBuffer(sprite_buffer);
 }
 
 
