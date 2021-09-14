@@ -45,12 +45,13 @@ You can see PCB layout on [EasyEDA](https://easyeda.com/vikonix/o-clock).
 External libraries Dependency Graph:
 - LEDMatrixDriver 0.2.2
    - SPI 1.0
-- RTClib 1.11.0
+- RTClib 1.14.0
    - Wire 1.0
-- NonBlockingRTTTL 1.2.2
-- Bounce2 2.53
+- NonBlockingRTTTL 1.3.0
+- Bounce2 2.70.0
 - Adafruit Unified Sensor 1.1.4
-- Adafruit BME280 Library 2.0.2
+- Adafruit BME280 Library 2.2.1
+   - Adafruit BusIO 1.9.1
    - Adafruit Unified Sensor 1.1.4
    - SPI 1.0
    - Wire 1.0

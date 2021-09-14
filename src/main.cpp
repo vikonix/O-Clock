@@ -496,7 +496,7 @@ void loop()
     static int KeyDelay = 0;
     if(!fEvent && !KeyPlus.read())
     {
-      if(KeyPlus.duration() >= LONG_PRESSED_PERIOD)
+      if(KeyPlus.currentDuration() >= LONG_PRESSED_PERIOD)
       {
         //long pressed 
         if(++KeyDelay >= KEY_DELAY)
@@ -509,7 +509,7 @@ void loop()
     }
     else if(!fEvent && !KeyMinus.read())
     {
-      if(KeyMinus.duration() >= LONG_PRESSED_PERIOD)
+      if(KeyMinus.currentDuration() >= LONG_PRESSED_PERIOD)
       {
         //long pressed 
         if(++KeyDelay >= KEY_DELAY)
