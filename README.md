@@ -39,7 +39,9 @@ Schematic
 Version 1.1 - stable version.
 
 You can see how this clock works on [YouTube](https://www.youtube.com/watch?v=Dx4R_fJPpwI).
+
 Project discussion [arduino.cc](https://create.arduino.cc/projecthub/vikonix/o-clock-3d24a1).
+
 Project Russian discussion [arduino.ru](http://arduino.ru/forum/proekty/o-clock-prostye-chasy-na-matritse-8kh32).
 
 You can see PCB layout on [EasyEDA](https://easyeda.com/vikonix/o-clock).
